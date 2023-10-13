@@ -10,6 +10,12 @@ export function App() {
     }
   };
 
+  const prevStep = () => {
+    if (step > 0) {
+      setStep(step - 1);
+    }
+  };
+
   const tutorialData = [
     {
       title: "Dedica moltes hores",
@@ -33,7 +39,7 @@ export function App() {
 
   return (
     <>
-      <MyCard {...tutorialData[step]} nextStep={nextStep} />
+      <MyCard {...tutorialData[step]} nextStep={nextStep} prevStep={prevStep} step={step} />
     </>
   );
 }

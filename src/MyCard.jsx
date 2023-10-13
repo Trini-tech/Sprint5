@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Button } from "react-bootstrap";
 import MobileStepper from "@mui/material/MobileStepper";
 
-export function MyCard({ title, description, bgColor, image, nextStep }) {
+export function MyCard({ title, description, bgColor, image, nextStep, prevStep, step }) {
   const cardStyle = {
     width: "20rem",
     height: "35rem",
@@ -37,9 +37,16 @@ export function MyCard({ title, description, bgColor, image, nextStep }) {
             <Card.Text>{description}</Card.Text>
             <div className="d-flex justify-content-space-between">
               <MobileStepper variant="dots" steps={3} position="static" sx={{ maxWidth: 400, flexGrow: 2 }}></MobileStepper>
-              <Button variant="dark" className="rounded-circle" style={customButtonStyle} onClick={nextStep}>
-                <i className="bi bi-arrow-right"></i>
-              </Button>
+              {step > 0 && (
+                <Button variant="white" className="rounded-circle border border-dark" style={customButtonStyle} onClick={prevStep}>
+                  <i className="bi bi-arrow-left"></i>
+                </Button>
+              )}
+              {step < 2 && (
+                <Button variant="dark" className="rounded-circle ms-2" style={customButtonStyle} onClick={nextStep}>
+                  <i className="bi bi-arrow-right"></i>
+                </Button>
+              )}
             </div>
           </Card.Body>
         </div>
