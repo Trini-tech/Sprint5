@@ -12,13 +12,17 @@ const IndicatorCircle = styled.div`
   border-radius: 50%;
   margin: 0 2px;
   background-color: ${props => (props.active ? "#212529" : "#BDBDBD")};
+  cursor: pointer;
 `;
 
-export function Indicator({ tutorialDataLength, step }) {
+export function Indicator({ tutorialDataLength, step, setStep }) {
+  const handleClick = index => {
+    setStep(index);
+  };
   return (
     <IndicatorContainer>
       {Array.from({ length: tutorialDataLength }).map((_, index) => (
-        <IndicatorCircle key={index} active={index === step} />
+        <IndicatorCircle key={index} active={index === step} onClick={() => handleClick(index)} />
       ))}
     </IndicatorContainer>
   );

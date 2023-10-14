@@ -39,7 +39,7 @@ export function App() {
 
   return (
     <>
-      <MyCard {...tutorialData[step]} nextStep={nextStep} prevStep={prevStep} step={step} tutorialDataLength={tutorialData.length} />
+      <MyCard {...tutorialData[step]} nextStep={nextStep} prevStep={prevStep} step={step} tutorialDataLength={tutorialData.length} setStep={setStep} />
     </>
   );
 }

@@ -2,7 +2,7 @@ import { Indicator } from "./Indicator.jsx";
 import { Card, Button } from "react-bootstrap";
 //import MobileStepper from "@mui/material/MobileStepper";
 
-export function MyCard({ title, description, bgColor, image, nextStep, prevStep, step, tutorialDataLength }) {
+export function MyCard({ title, description, bgColor, image, nextStep, prevStep, step, tutorialDataLength, setStep }) {
   const cardStyle = {
     width: "20rem",
     height: "35rem",
@@ -36,7 +36,7 @@ export function MyCard({ title, description, bgColor, image, nextStep, prevStep,
             <Card.Title>{title}</Card.Title>
             <Card.Text>{description}</Card.Text>
             <div className="d-flex justify-content-between">
-              <Indicator tutorialDataLength={tutorialDataLength} step={step} />
+              <Indicator tutorialDataLength={tutorialDataLength} step={step} setStep={setStep} />
               <div>
                 {step > 0 && (
                   <Button variant="white" className="rounded-circle border border-dark" style={customButtonStyle} onClick={prevStep}>
